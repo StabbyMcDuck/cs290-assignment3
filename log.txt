@@ -1,4 +1,12 @@
 You log goes in this  file.
 
+Part 1:
 Started: 28 January 2015 1:11PM
-Ended:
+Ended: 28 January 2015 3:45PM
+
+Started: 1 February 2015 1:15PM
+Ended: 1 February 2015 5:09PM
+
+Part 2:
+Started: 1 February 2015 5:15PM
+Ended: 1 February 2015 10:01PM
