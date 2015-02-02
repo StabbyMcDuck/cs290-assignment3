@@ -13,7 +13,9 @@
 */
 
 //your code here
-
+function uselessFunction(){ // accepts no arguments, called uselessFunction
+    return null;
+}
 //end your code
 
 var bar = 'not a function';
@@ -30,7 +32,20 @@ var barType = typeof bar;
 */
 
 //your code here
+bar = function(doubleArray){
+    var floatingPointNumbers;
+    var success = true;
 
+    for(floatingPointNumbers = 0; floatingPointNumbers < doubleArray.length; floatingPointNumbers++){
+        if(typeof doubleArray[floatingPointNumbers] != 'number'){
+            success = false;
+        }else{
+            doubleArray[floatingPointNumbers] *= 2;
+        }
+    }
+
+    return success;
+}
 //end your code
 
 /**
@@ -66,5 +81,20 @@ function GitLog(hash, date, message) {
 */
 
 //your code here
+function parseGit(logArray){
+    var newArray = [];
+
+    for(var i = 0; i < logArray.length; i++){
+        var firstSplit = logArray[i].split(" ", 1);
+        var secondSplit = logArray[i].split("\"");
+        var endOfString = secondSplit[1];
+        var stringOfCharacters = secondSplit[0].substring(firstSplit[0].length);
+        var gitUpdate = new GitLog(firstSplit[0], new Date(stringOfCharacters), endOfString);
+
+        newArray.push(gitUpdate);
+    }
+
+    return newArray;
+}
 
 //end your code

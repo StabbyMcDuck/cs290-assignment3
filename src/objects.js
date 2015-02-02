@@ -10,7 +10,8 @@
 
 function returnObjectLiteral() {
   //your code here
-  return undefined; //Modify ONLY this line
+    var crackers = {type: "Goldfish", brand: "Pepperidge Farm", flavor: "Cheddar", count: 2000};
+    return crackers; //Modify ONLY this line
   //end your code
 }
 
@@ -38,7 +39,53 @@ function returnObjectLiteral() {
 */
 
 //your code here
+MessageLog = function MessageLog(user) {
+    this.user = user;
+    this.messages = [];
+    this.sentCount = 0;
+    this.receivedCount = 0;
 
+};
+
+MessageLog.prototype = {
+    logMessage: function(messageText, direction){
+        this.messages.unshift({messageText:messageText, direction:direction})
+        /* limit messages to last 5 received! */
+        if(this.messages.length > 5){
+            this.messages.pop();
+        }
+
+        if(direction === 0){
+            this.sentCount++;
+        }else if(direction === 1){
+            this.receivedCount++;
+        }
+    },
+
+    getSentMessage: function(n){
+        var sentSeen = 0;
+
+        for(var i = 0; i < this.messages.length; i++){
+            if(this.messages[i].direction === 0){  // 0 for sent
+                if(sentSeen === n){
+                    return this.messages[i].messageText;
+                }
+                sentSeen++;
+            }
+        }
+
+        return null;
+    },
+
+    totalSent: function(){
+        return this.sentCount;
+    },
+
+    totalReceived: function(){
+        return this.receivedCount;
+    }
+
+};
 //end your code
 
 /**
@@ -47,6 +94,21 @@ function returnObjectLiteral() {
 * received.
 */
 //your code here
+MessageLog.prototype.lastReceivedMessage = function(){
+    var receivedSeen = 0;
+
+    for(var i = 0; i < this.messages.length; i++){
+        if(this.messages[i].direction === 1){ // 1 for received
+            if(receivedSeen === 0){
+                return this.messages[i].messageText;
+            }
+            receivedSeen++;
+        }
+    }
+
+    return null;
+};
+
 
 //end your code
 
@@ -57,5 +119,11 @@ function returnObjectLiteral() {
 */
 
 //your code here
+myLog = new MessageLog("BlackHatGuy");
+
+myLog.logMessage("foo", 1);
+myLog.logMessage("bar", 1);
+myLog.logMessage("baz", 1);
+
 
 //end your code

@@ -10,11 +10,13 @@ in input `a`
 a: the original a number
 */
 function variableModification(a) {
-  var plus5;
-  var asString;
-  var yourNumberIs;
+  var plus5; // sum of 5 and a
+  var asString; // a converted to a string
+  var yourNumberIs; // your number is x where x is replaced by a
   //your code here
-
+    var plus5 = 5 + a;
+    var asString = a.toString();
+    var yourNumberIs = "Your Number is " + a;
   //end your code
   return [plus5, asString, yourNumberIs, a];
 }
@@ -29,7 +31,7 @@ false otherwise
 */
 function isString(b) {
   //your code here
-  return undefined;
+    return typeof(b) === "string";
   //end your code
 }
 
@@ -42,6 +44,6 @@ return true if c is null, false otherwise
 */
 function isNull(c) {
   //your code here
-  return undefined;
+  return c === null;
   //end your code
 }
